@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>2048 Mobile</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <div class="header">
+            <div class="title-container">
+                <h1 class="game-title">2048</h1>
+                <p class="game-subtitle">Объединяй числа. Покоряй вершину.</p>
+            </div>
+            
+            <div class="score-container">
+                <div class="score-box">
+                    <div class="score-label">СЧЁТ</div>
+                    <div id="score" class="score-value">0</div>
+                </div>
+                <div class="score-box">
+                    <div class="score-label">РЕКОРД</div>
+                    <div id="best-score" class="score-value">0</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-controls">
+            <button id="new-game" class="control-btn">
+                <i class="fas fa-plus-circle"></i>
+                <span>Новая игра</span>
+            </button>
+            <button id="hint-btn" class="control-btn hint">
+                <i class="fas fa-lightbulb"></i>
+                <span>Подсказка</span>
+            </button>
+        </div>
+
+        <div class="game-stats">
+            <div class="stat">
+                <i class="fas fa-shoe-prints"></i>
+                <span>Ходов: <span id="moves-counter">0</span></span>
+            </div>
+            <div class="stat">
+                <i class="fas fa-clock"></i>
+                <span>Время: <span id="timer">0:00</span></span>
+            </div>
+        </div>
+
+        <div class="game-area">
+            <div class="game-board-container">
+    <div id="game-board" class="game-board"></div>
+    <div id="game-overlay" class="game-overlay">
+        <h2 id="overlay-title" class="overlay-title"></h2>
+        <p id="overlay-text" class="overlay-text"></p>
+        <div id="overlay-stats" class="overlay-stats">
+            <!-- Статистика будет добавляться через JS -->
+        </div>
+        <div class="overlay-buttons">
+            <button id="overlay-new-game" class="overlay-btn">
+                <i class="fas fa-redo"></i>
+                Новая игра
+            </button>
+            <button id="overlay-continue" class="overlay-btn continue">
+                <i class="fas fa-play"></i>
+                Продолжить
+            </button>
+        </div>
+    </div>
+</div>
+        </div>
+
+        <div class="game-instructions">
+            <p><i class="fas fa-hand-point-up"></i> Свайпай в любом направлении для перемещения плиток</p>
+            <p>Соединяй одинаковые плитки, чтобы получить заветную плитку <strong>2048!</strong></p>
+        </div>
+
+        <footer class="footer">
+            <p>Создано с <i class="fas fa-heart"></i> для любителей головоломок</p>
+        </footer>
+    </div>
+
+    <script src="tile.js"></script>
+    <script src="grid.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
