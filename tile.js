@@ -30,7 +30,7 @@ class Tile {
     }
     
     setInitialPosition() {
-        this.updatePosition(true); // Instant positioning
+        this.updatePosition(true); 
     }
     
     savePosition() {
@@ -53,7 +53,7 @@ class Tile {
             this.element.style.transition = 'none';
             this.element.style.transform = `translate(${x}px, ${y}px) scale(1)`;
             this.element.style.opacity = '1';
-            void this.element.offsetWidth; // Force reflow
+            void this.element.offsetWidth; 
             this.element.style.transition = '';
         } else {
             // Плавное движение
@@ -67,7 +67,6 @@ class Tile {
         // Анимация слияния
         this.element.classList.add('tile-merge');
         
-        // Обновляем значение после небольшой задержки
         setTimeout(() => {
             this.value = newValue;
             this.element.textContent = newValue;
@@ -77,7 +76,6 @@ class Tile {
             this.element.style.transition = 'background-color 0.3s ease, color 0.3s ease';
             this.element.className = `tile tile-${newValue} tile-merge`;
             
-            // Убираем класс анимации после завершения
             setTimeout(() => {
                 this.element.classList.remove('tile-merge');
                 this.element.style.transition = '';
@@ -88,7 +86,6 @@ class Tile {
     
     remove() {
         if (this.element && this.element.parentNode) {
-            // Плавное исчезновение
             this.element.style.transition = 'all 0.2s ease';
             this.element.style.opacity = '0';
             this.element.style.transform += ' scale(0.8)';

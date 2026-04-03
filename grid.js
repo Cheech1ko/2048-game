@@ -8,7 +8,6 @@ class Grid {
         this.gap = 0;
         this.score = 0;
         this.lastMoveScore = 0;
-        // Убираем сложный флаг isMoving
         this.pendingAnimations = 0;
         
         this.init();
@@ -19,7 +18,6 @@ class Grid {
     init() {
         this.container.innerHTML = '';
         
-        // Создаем визуальные ячейки сетки
         for (let y = 0; y < this.size; y++) {
             for (let x = 0; x < this.size; x++) {
                 const cell = document.createElement('div');
@@ -95,9 +93,8 @@ class Grid {
         return this.cells[y][x];
     }
     
-    // Основной исправленный метод движения
     move(direction) {
-        // Если есть незавершенные анимации, пропускаем ход
+
         if (this.pendingAnimations > 0) {
             return { moved: false, score: 0 };
         }
@@ -117,7 +114,6 @@ class Grid {
         // Список плиток, которые нужно удалить после анимации
         const tilesToRemove = [];
         
-        // Сначала обрабатываем логику движения
         for (let x of traversals.x) {
             for (let y of traversals.y) {
                 const tile = this.getTileAt(x, y);
@@ -159,10 +155,8 @@ class Grid {
         }
         
         if (moved) {
-            // Увеличиваем счетчик анимаций
             this.pendingAnimations++;
             
-            // Удаляем слитые плитки после анимации
             setTimeout(() => {
                 this.removeTiles(tilesToRemove);
                 
@@ -170,7 +164,6 @@ class Grid {
                 setTimeout(() => {
                     this.addRandomTile();
                     
-                    // Уменьшаем счетчик анимаций
                     this.pendingAnimations--;
                     
                 }, 150);
@@ -239,7 +232,7 @@ class Grid {
     
     withinBounds(position) {
         return position.x >= 0 && position.x < this.size &&
-               position.y >= 0 && position.y < this.size;
+            position.y >= 0 && position.y < this.size;
     }
     
     positionsEqual(pos1, pos2) {

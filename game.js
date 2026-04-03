@@ -145,7 +145,7 @@ class Game2048 {
             this.moves++;
             this.score += result.score;
             
-            // Обновляем рекорд
+
             if (this.score > this.bestScore) {
                 this.bestScore = this.score;
                 localStorage.setItem('2048-best-score', this.bestScore);
